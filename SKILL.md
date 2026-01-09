@@ -1,6 +1,7 @@
 ---
 name: specrate
 description: Skill to manage specs and changes. Use this when working with specrate-managed documents.
+license: Apache-2.0
 ---
 
 # Specrate

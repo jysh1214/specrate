@@ -3,7 +3,7 @@
 When showing the current status of specs and changes, follow these steps:
 
 1. Check whether the `.specrate/` folder exists.
-   - If it does not exist, report that there are no Specrate-managed artifacts yet (no specs/changes to show), and stop.
+   - If it does not exist, report that there are no specrate-managed artifacts yet (no specs/changes to show), and stop.
 2. Summarize specs.
    - Check whether `.specrate/specs/` exists.
    - If it exists, list each `.specrate/specs/{spec-id}/` folder and whether it contains the required file `spec.md`.

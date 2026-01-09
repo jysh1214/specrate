@@ -10,7 +10,7 @@
 
 ## Folder Structure
 
-All Specrate-managed artifacts are organized in the `.specrate/` folder at the project root. The key folders under it are `specs/` and `changes/`.
+All specrate-managed artifacts are organized in the `.specrate/` folder at the project root. The key folders under it are `specs/` and `changes/`.
 Specs are the current state of the system, while changes are proposed modifications to it.
 
 ### Specs

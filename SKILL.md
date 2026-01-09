@@ -17,6 +17,8 @@ The Specrate system is designed to manage specs and changes to those specs in a 
 
 Based on the user's request, decide which action to take.
 
+- If the user requests to show the current status of specs and changes,
+  follow [SHOW-STATUS.md](./references/actions/SHOW-STATUS.md) action.
 - If the user requests to propose a new change,
   follow [PROPOSE-CHANGE.md](./references/actions/PROPOSE-CHANGE.md) action.
 - If the user requests to amend an existing change,

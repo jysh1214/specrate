@@ -26,12 +26,13 @@ Remove-Item -Path .github/skills/specrate/.git -Recurse -Force
 
 Specrate manages spec and change artifacts under `.specrate/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
-1. Propose a new change: "Propose a new change to {description of the change}"
-2. Amend an existing change: "Amend the change {change-id}: {description of the amendment}"
-3. Plan a proposed change: "Plan the proposed {change-id}"
-4. Implement a planned change: "Implement the planned {change-id}"
-5. Archive an implemented change: "Archive the implemented {change-id}"
-6. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
+1. Show current status: "Show the current status of specs and changes"
+2. Propose a new change: "Propose a new change to {description of the change}"
+3. Amend an existing change: "Amend the change {change-id}: {description of the amendment}"
+4. Plan a proposed change: "Plan the proposed {change-id}"
+5. Implement a planned change: "Implement the planned {change-id}"
+6. Archive an implemented change: "Archive the implemented {change-id}"
+7. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 

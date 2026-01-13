@@ -12,7 +12,7 @@ The specrate system is designed to manage specs and changes to those specs in a 
 
 - [PRINCIPLE.md](./references/PRINCIPLE.md) must be read first to understand how specrate works.
 - [actions](./references/actions/) folder defines detailed steps for each specrate action.
-- [templates](./assets/templates/) folder contains templates for creating spec and change documents.
+- [templates](./assets/templates/) folder contains templates for various specrate artifacts and reports.
 
 ## Decisions
 

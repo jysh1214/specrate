@@ -30,6 +30,8 @@ Based on the user's request, decide which action to take.
   follow [IMPLEMENT-CHANGE.md](./references/actions/IMPLEMENT-CHANGE.md) action.
 - If the user intends to archive an implemented change,
   follow [ARCHIVE-CHANGE.md](./references/actions/ARCHIVE-CHANGE.md) action.
+- If the user intends to prepare a PR for an implemented change,
+  follow [CREATE-PR.md](./references/actions/CREATE-PR.md) action.
 - If the user intends to fix a spec according to the codebase,
   follow [FIX-SPEC.md](./references/actions/FIX-SPEC.md) action.
 - If the user's intent mixes multiple actions,

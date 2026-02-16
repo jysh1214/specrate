@@ -27,7 +27,7 @@ Remove-Item -Path .github/skills/specrate/.git -Recurse -Force
 Specrate manages spec and change artifacts under `.specrate/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
 1. Show current status: "Show the current status of specs and changes"
-2. Propose a new change: "Propose a new change to {description of the change}"
+2. Propose a new change: "Propose a new change to {description of the change}" (optionally include Jira ticket)
 3. Amend an existing change: "Amend the change {change-id}: {description of the amendment}"
 4. Plan a proposed change: "Plan the proposed {change-id}"
 5. Implement a planned change: "Implement the planned {change-id}"

@@ -12,6 +12,33 @@ Note: the skill itself is installed under `.claude/skills/specrate`, while the d
 mkdir -p .claude/skills && git clone https://github.com/jysh1214/specrate.git .claude/skills/specrate && rm -rf .claude/skills/specrate/.git
 ```
 
+## Change Lifecycle
+
+```
+┌──────────┐      ┌──────────┐     ┌─────────────┐     ┌──────────┐
+│ PROPOSE  │────▶│   PLAN   │────▶│  IMPLEMENT  │────▶│ VALIDATE │
+└──────────┘      └──────────┘     └─────────────┘     └────┬─────┘
+                                                           │
+                                          ┌────────────────┼────────────────┐
+                                          │ PASS                       FAIL │
+                                          ▼                                 ▼
+                                    ┌───────────┐                  ┌─────────────────┐
+                                    │  ARCHIVE  │                  │ DOCUMENT ISSUES │
+                                    └───────────┘                  └───────┬─────────┘
+                                                                           │
+                                                            ┌──────────────┴──────────────┐
+                                                            │                             │
+                                                            ▼                             ▼
+                                                    ┌──────────────┐            ┌────────────────────┐
+                                                    │ AMEND CHANGE │            │ PROPOSE NEW CHANGE │
+                                                    │ (fix & retry)│            └────────────────────┘
+                                                    └──────┬───────┘
+                                                           │
+                                                           ▼
+                                                   back to IMPLEMENT
+                                                   or PLAN as needed
+```
+
 ## Usage
 
 Specrate manages spec and change artifacts under `.specrate/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
@@ -21,10 +48,11 @@ Specrate manages spec and change artifacts under `.specrate/` at the repository 
 3. Amend an existing change: "Amend the change {change-id}: {description of the amendment}"
 4. Plan a proposed change: "Plan the proposed {change-id}"
 5. Implement a planned change: "Implement the planned {change-id}"
-6. Archive an implemented change: "Archive the implemented {change-id}"
-7. Prepare a PR: "Prepare a PR for {change-id}"
-8. Document issues in a change: "Document issues found in {change-id}"
-9. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
+6. Validate an implemented change: "Validate the implemented {change-id}"
+7. Archive an implemented change: "Archive the implemented {change-id}"
+8. Prepare a PR: "Prepare a PR for {change-id}"
+9. Document issues in a change: "Document issues found in {change-id}"
+10. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 

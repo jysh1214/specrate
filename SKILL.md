@@ -32,6 +32,8 @@ Based on the user's request, decide which action to take.
   follow [ARCHIVE-CHANGE.md](./references/actions/ARCHIVE-CHANGE.md) action.
 - If the user intends to prepare a PR for an implemented change,
   follow [CREATE-PR.md](./references/actions/CREATE-PR.md) action.
+- If the user intends to validate an implemented change,
+  follow [VALIDATE-CHANGE.md](./references/actions/VALIDATE-CHANGE.md) action.
 - If the user intends to document issues found in a change,
   follow [DOCUMENT-ISSUES.md](./references/actions/DOCUMENT-ISSUES.md) action.
 - If the user intends to fix a spec according to the codebase,

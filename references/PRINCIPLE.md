@@ -58,6 +58,10 @@ Prefixing with a Jira ticket index is optional, e.g., `PROJ-123-add-multi-factor
   The task list for the change `{change-id}`.
   Tasks are actionable items to be completed as part of implementing the change `{change-id}`.
   Use task list grammar (e.g., `- [ ]` for pending tasks and `- [x]` for completed tasks) to track progress.
+- `.specrate/changes/{change-id}/validation.md`: (optional, follows [VALIDATION.md](../assets/templates/VALIDATION.md))
+  The validation document for the change `{change-id}`.
+  This document describes how to validate the change, the expected outcome, and the result (PASS or FAIL).
+  The validation method must be clear, unambiguous, and reproducible.
 - `.specrate/changes/{change-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
   The issues document for the change `{change-id}`.
   This document records the issues found, their root causes, and suggested fixes.

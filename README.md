@@ -23,7 +23,8 @@ Specrate manages spec and change artifacts under `.specrate/` at the repository 
 5. Implement a planned change: "Implement the planned {change-id}"
 6. Archive an implemented change: "Archive the implemented {change-id}"
 7. Prepare a PR: "Prepare a PR for {change-id}"
-8. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
+8. Document issues in a change: "Document issues found in {change-id}"
+9. Fix a spec from codebase: "Fix the spec for {spec-id, or description of the spec scope} from the codebase"
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 

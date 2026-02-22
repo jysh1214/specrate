@@ -5,7 +5,7 @@
 - Favor straightforward, minimal implementations first and add complexity only when it is requested or clearly required.
 - Keep changes tightly scoped to the requested outcome. Avoid scope creep.
 - Specs describe "what" the system should do, while changes describe how the system should evolve.
-- During the lifecycle of a change (`PROPOSED` → `PLANNED` → `IMPLEMENTED`), do **NOT** update specs. All proposed requirements and work-in-progress intent must live under the change folder (especially `spec-delta.md`).
+- During the lifecycle of a change (`PROPOSED` → `PLANNED` → `IMPLEMENTED`, or `FAILED` at any point), do **NOT** update specs. All proposed requirements and work-in-progress intent must live under the change folder (especially `spec-delta.md`).
 - Specs are updated only when archiving a change (`ARCHIVED`), by integrating the change's `spec-delta.md` into the relevant spec(s).
 
 ## Folder Structure
@@ -44,7 +44,7 @@ Prefixing with a Jira ticket index is optional, e.g., `PROJ-123-add-multi-factor
 
 - `.specrate/changes/{change-id}/state`: (required)
   The state document for the change `{change-id}`, containing its current state only.
-  Possible states are literally `PROPOSED`, `PLANNED`, `IMPLEMENTED`, and `ARCHIVED`.
+  Possible states are literally `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`.
   See policies in the **Change lifecycle** section of this document.
 - `.specrate/changes/{change-id}/proposal.md`: (required, follows [CHANGES-PROPOSAL.md](../assets/templates/CHANGES-PROPOSAL.md))
   The main proposal document for the change `{change-id}`, outlining the motivation, goals, and high-level approach for the change `{change-id}`.
@@ -58,12 +58,15 @@ Prefixing with a Jira ticket index is optional, e.g., `PROJ-123-add-multi-factor
   The task list for the change `{change-id}`.
   Tasks are actionable items to be completed as part of implementing the change `{change-id}`.
   Use task list grammar (e.g., `- [ ]` for pending tasks and `- [x]` for completed tasks) to track progress.
+- `.specrate/changes/{change-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
+  The issues document for the change `{change-id}`.
+  This document records the issues found, their root causes, and suggested fixes.
 - `.specrate/changes/{change-id}/*`: (optional)
   Any additional files related to the change `{change-id}`, such as diagrams or supporting documents.
 
 ## Change Lifecycle
 
-Each change goes through a defined lifecycle with specific states. The state must be included in the `state` file within each change folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, and `ARCHIVED`. They happen in this order, and a change cannot skip any state.
+Each change goes through a defined lifecycle with specific states. The state must be included in the `state` file within each change folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`. They happen in this order, and a change cannot skip any state. A change can enter the `FAILED` state from any active state (`PROPOSED`, `PLANNED`, or `IMPLEMENTED`) when issues are found.
 
 Policy: treat specs as stable and do not edit them for an in-flight change. The only point where a change is merged into specs is the `ARCHIVED` step.
 
@@ -113,6 +116,15 @@ The change folder must contain the `tasks.md` file where all tasks are marked co
 Specs should still remain unchanged in this state. If the implementation reveals mismatches, update the change documents (especially `spec-delta.md`) and proceed to archival to merge into specs.
 
 By reviewing the implementation and the behavior of the system, designated engineers can verify that the change has been successfully integrated. Once verified, the change can be moved to the final state of `ARCHIVED`.
+
+### Failed
+
+In this state, the state file contains the text `FAILED` only.
+
+The state indicates that issues have been found in the change that need to be addressed before proceeding.
+The change folder must contain the `issues.md` file documenting the issues, their root causes, and suggested fixes.
+
+A `FAILED` change can be moved back to its previous state (e.g., `PROPOSED`, `PLANNED`, or `IMPLEMENTED`) once the issues have been resolved and the `issues.md` file has been updated accordingly.
 
 ### Archived
 

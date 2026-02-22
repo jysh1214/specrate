@@ -16,5 +16,5 @@ When validating an implemented change, follow these steps:
    - Otherwise, create the file using the [VALIDATION.md](../../assets/templates/VALIDATION.md) template.
 5. Execute or guide the user through the validation steps and record the outcome:
    - If the validation passes, set the status to `PASS` in `validation.md`.
-   - If the validation fails, set the status to `FAIL` in `validation.md` and suggest next steps (e.g., documenting issues, amending the change, re-implementing tasks).
+   - If the validation fails, set the status to `FAIL` in `validation.md` and proceed with the [DOCUMENT-ISSUES.md](./DOCUMENT-ISSUES.md) action to record what went wrong.
 6. Summarize the validation result and provide next steps if applicable.

@@ -36,8 +36,6 @@ Based on the user's request, decide which action to take.
   follow [VALIDATE-CHANGE.md](./references/actions/VALIDATE-CHANGE.md) action.
 - If the user intends to document issues found in a change,
   follow [DOCUMENT-ISSUES.md](./references/actions/DOCUMENT-ISSUES.md) action.
-- If the user intends to fix a spec according to the codebase,
-  follow [FIX-SPEC.md](./references/actions/FIX-SPEC.md) action.
 - If the user's intent mixes multiple actions,
   break down the intent into individual actions, ask for confirmation, and execute them one by one.
 - If the user's intent is ambiguous (e.g., “update the spec”),

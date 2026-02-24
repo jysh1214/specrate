@@ -15,4 +15,5 @@ When proposing a new change, follow these steps:
    - `ticket`: (optional) if the user provides a Jira ticket index, create this file containing the ticket index only (e.g., `PROJ-123`).
 4. Fill out the `proposal.md` and `spec-delta.md` files with the relevant information about the change.
 5. Optionally, add any additional files related to the change, such as diagrams or supporting documents only if requested by the user.
-6. Summarize the created change proposal and provide any next steps if applicable.
+6. Update `.specrate/work` with the new `change-id` to set it as the currently focused change.
+7. Summarize the created change proposal and provide any next steps if applicable.

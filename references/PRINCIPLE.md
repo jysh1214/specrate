@@ -13,6 +13,8 @@
 All specrate-managed artifacts are organized in the `.specrate/` folder at the project root. The key folders under it are `specs/` and `changes/`.
 Specs are the current state of the system, while changes are proposed modifications to it.
 
+- `.specrate/work`: (required) Contains the change-id of the currently focused change (e.g., `0001-add-multi-factor-auth`). This file tracks which change is actively being worked on. Actions should default to operating on this change.
+
 ### Specs
 
 The folder `.specrate/specs/` contains the specs that define various aspects of the system.

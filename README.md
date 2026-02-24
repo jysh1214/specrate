@@ -4,12 +4,16 @@ Specrate is an agent skill that manages specs and changes in a structured way. I
 
 ## Installation
 
-Install the skill by git-cloning into your repo's `.claude/skills` folder.
-
-Note: the skill itself is installed under `.claude/skills/specrate`, while the documents it manages are created/updated under `.specrate/` at your repository root.
+Claude code:
 
 ```sh
 mkdir -p .claude/skills && git clone https://github.com/jysh1214/specrate.git .claude/skills/specrate && rm -rf .claude/skills/specrate/.git
+```
+
+Auggie:
+
+```sh
+mkdir -p .augment/skills && git clone https://github.com/jysh1214/specrate.git .augment/skills/specrate && rm -rf .augment/skills/specrate/.git
 ```
 
 ## Change Lifecycle

@@ -4,6 +4,8 @@ When proposing a new change, follow these steps:
 
 1. Ensure `.specrate/changes/` exists; create it if missing.
 2. Create a new folder `.specrate/changes/{change-id}/` with a unique `change-id` that describes the change.
+   - Scan `.specrate/changes/` for existing change directories and extract the highest numeric prefix (the leading 4-digit number) from existing change ids. Assign the next sequential index, zero-padded to 4 digits. If no changes exist, start at `0001`.
+   - Construct the change id as `{index}-{descriptive-part}` (e.g., `0001-add-multi-factor-auth`) or `{index}-{descriptive-part}-{ticket}` if a Jira ticket is provided (e.g., `0001-add-multi-factor-auth-PROJ-123`).
    - Propose a `change-id` based on the user's description if not provided, and confirm it with the user.
    - If the folder already exists, inform the user, suggest amending the existing change instead, and abort the current action.
 3. Inside the new folder, create the following required files:

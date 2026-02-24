@@ -38,9 +38,9 @@ The folder `.specrate/changes/` contains the changes that describe proposed modi
 Changes are about "how" the system should evolve to meet new requirements or fix issues.
 
 Each change is stored in its own subfolder named after its unique change id (`.specrate/changes/{change-id}/`).
-Change ids are kebab-case, verb-led, unique identifiers, e.g., `add-multi-factor-auth`, `improve-payment-latency`, or `add-project-dashboard`. Prefer verb prefixes like `add-`, `remove-`, `update-`, `improve-`, *etc.*, to indicate the action being proposed.
-The corresponding change names are of the same wording but in Title Case, e.g., `Add Multi-Factor Auth`, `Improve Payment Latency`, or `Add Project Dashboard`.
-Prefixing with a Jira ticket index is optional, e.g., `PROJ-123-add-multi-factor-auth`, `PROJ-456-improve-payment-latency`, or `add-project-dashboard`.
+Change ids start with a 4-digit zero-padded auto-incrementing index prefix, followed by a kebab-case, verb-led descriptive part, e.g., `0001-add-multi-factor-auth`, `0002-improve-payment-latency`, or `0003-add-project-dashboard`. Prefer verb prefixes like `add-`, `remove-`, `update-`, `improve-`, *etc.*, to indicate the action being proposed. The index is determined by scanning existing change directories under `.specrate/changes/`, finding the highest numeric prefix, and incrementing by 1. If no changes exist, start at `0001`.
+The corresponding change names are of the same wording (without the index prefix) but in Title Case, e.g., `Add Multi-Factor Auth`, `Improve Payment Latency`, or `Add Project Dashboard`.
+Suffixing with a Jira ticket index is optional, e.g., `0001-add-multi-factor-auth-PROJ-123`, `0002-improve-payment-latency-PROJ-456`, or `0003-add-project-dashboard`.
 
 - `.specrate/changes/{change-id}/state`: (required)
   The state document for the change `{change-id}`, containing its current state only.
@@ -84,7 +84,7 @@ To manage the state of a change, use the following PowerShell commands or equiva
 Get-Content .specrate/changes/{change-id}/state
 
 # for example:
-Get-Content .specrate/changes/add-multi-factor-auth/state
+Get-Content .specrate/changes/0001-add-multi-factor-auth/state
 ```
 
 ```pwsh
@@ -92,7 +92,7 @@ Get-Content .specrate/changes/add-multi-factor-auth/state
 Set-Content .specrate/changes/{change-id}/state {NEW_STATE}
 
 # for example:
-Set-Content .specrate/changes/improve-payment-latency/state IMPLEMENTED
+Set-Content .specrate/changes/0002-improve-payment-latency/state IMPLEMENTED
 ```
 
 ### Proposed

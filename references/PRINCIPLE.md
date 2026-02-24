@@ -46,6 +46,9 @@ Prefixing with a Jira ticket index is optional, e.g., `PROJ-123-add-multi-factor
   The state document for the change `{change-id}`, containing its current state only.
   Possible states are literally `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`.
   See policies in the **Change lifecycle** section of this document.
+- `.specrate/changes/{change-id}/ticket`: (optional)
+  The ticket file for the change `{change-id}`, containing the Jira ticket index only (e.g., `PROJ-123`).
+  Created when the user provides a Jira ticket index during the proposal.
 - `.specrate/changes/{change-id}/proposal.md`: (required, follows [CHANGES-PROPOSAL.md](../assets/templates/CHANGES-PROPOSAL.md))
   The main proposal document for the change `{change-id}`, outlining the motivation, goals, and high-level approach for the change `{change-id}`.
 - `.specrate/changes/{change-id}/spec-delta.md`: (required, follows [CHANGES-SPEC-DELTA.md](../assets/templates/CHANGES-SPEC-DELTA.md))

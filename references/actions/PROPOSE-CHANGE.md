@@ -10,6 +10,7 @@ When proposing a new change, follow these steps:
    - `state`: containing the text `PROPOSED` only.
    - `proposal.md`: using the [CHANGES-PROPOSAL.md](../../assets/templates/CHANGES-PROPOSAL.md) template.
    - `spec-delta.md`: using the [CHANGES-SPEC-DELTA.md](../../assets/templates/CHANGES-SPEC-DELTA.md) template.
+   - `ticket`: (optional) if the user provides a Jira ticket index, create this file containing the ticket index only (e.g., `PROJ-123`).
 4. Fill out the `proposal.md` and `spec-delta.md` files with the relevant information about the change.
 5. Optionally, add any additional files related to the change, such as diagrams or supporting documents only if requested by the user.
 6. Summarize the created change proposal and provide any next steps if applicable.

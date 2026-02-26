@@ -61,7 +61,7 @@ Specrate manages spec and change artifacts under `.specrate/` at the repository 
 3. Amend an existing change: "Follow specrate skill, amend the change {change-id}: {description of the amendment}"
 4. Plan a proposed change: "Follow specrate skill, plan the proposed {change-id}"
 5. Implement a planned change: "Follow specrate skill, implement the planned {change-id}"
-6. Validate an implemented change: "Follow specrate skill, validate the implemented {change-id}"
+6. Validate an implemented change: "Follow specrate skill, validate the implemented {change-id}: {description of validation}"
 7. Archive an implemented change: "Follow specrate skill, archive the implemented {change-id}"
 8. Prepare a PR: "Follow specrate skill, prepare a PR for {change-id}"
 9. Document issues in a change: "Follow specrate skill, document issues found in {change-id}"

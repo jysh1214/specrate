@@ -58,6 +58,11 @@ mkdir -p .augment/skills && git clone https://github.com/jysh1214/tequila.git .a
 
 Tequila manages task artifacts under `.tequila/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
+0. Run Free Bird mode (full automated flywheel — requires a proposed task):
+```txt
+Follow tequila skill, run Free Bird mode for {task-id}; validation: {description of validation}
+```
+   The task must already be in `PROPOSED` state (use step 1 first). Free Bird then takes over: plan → implement → validate → archive, with automatic amend-and-retry on failure.
 1. Propose a new task:
 ```txt
 Follow tequila skill, propose a new task to {description of the task} (optionally include Jira ticket)

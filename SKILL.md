@@ -36,6 +36,8 @@ Based on the user's request, decide which action to take.
   follow [VALIDATE-TASK.md](./references/actions/VALIDATE-TASK.md) action.
 - If the user intends to document issues found in a task,
   follow [DOCUMENT-ISSUES.md](./references/actions/DOCUMENT-ISSUES.md) action.
+- If the user intends to run Free Bird mode for a task (run the full flywheel automatically),
+  follow [FREE-BIRD.md](./references/actions/FREE-BIRD.md) action.
 - If the user's intent mixes multiple actions,
   break down the intent into individual actions, ask for confirmation, and execute them one by one.
 - If the user's intent is ambiguous (e.g., "update the task"),

@@ -58,15 +58,42 @@ mkdir -p .augment/skills && git clone https://github.com/jysh1214/tequila.git .a
 
 Tequila manages task artifacts under `.tequila/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
-1. Show current status: "Follow tequila skill, show the current status of tasks"
-2. Propose a new task: "Follow tequila skill, propose a new task to {description of the task}" (optionally include Jira ticket)
-3. Amend an existing task: "Follow tequila skill, amend the task {task-id}: {description of the amendment}"
-4. Plan a proposed task: "Follow tequila skill, plan the proposed {task-id}"
-5. Implement a planned task: "Follow tequila skill, implement the planned {task-id}"
-6. Validate an implemented task: "Follow tequila skill, validate the implemented {task-id}: {description of validation}"
-7. Archive an implemented task: "Follow tequila skill, archive the implemented {task-id}"
-8. Prepare a PR: "Follow tequila skill, prepare a PR for {task-id}"
-9. Document issues in a task: "Follow tequila skill, document issues found in {task-id}"
+1. Show current status:
+```txt
+Follow tequila skill, show the current status of tasks
+```
+2. Propose a new task:
+```txt
+Follow tequila skill, propose a new task to {description of the task} (optionally include Jira ticket)
+```
+3. Amend an existing task:
+```txt
+Follow tequila skill, amend the task {task-id}: {description of the amendment}
+```
+4. Plan a proposed task:
+```txt
+Follow tequila skill, plan the proposed {task-id}
+```
+5. Implement a planned task:
+```txt
+Follow tequila skill, implement the planned {task-id}
+```
+6. Validate an implemented task:
+```txt
+Follow tequila skill, validate the implemented {task-id}: {description of validation}
+```
+7. Archive an implemented task
+```txt
+Follow tequila skill, archive the implemented {task-id}
+```
+8. Prepare a PR:
+```txt
+Follow tequila skill, prepare a PR for {task-id}
+```
+9. Document issues in a task:
+```txt
+Follow tequila skill, document issues found in {task-id}
+```
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 

@@ -50,7 +50,7 @@ The corresponding task names are of the same wording (without the index prefix) 
 
 ## Task Lifecycle
 
-Each task goes through a defined lifecycle with specific states. The state must be included in the `state` file within each task folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`. They happen in this order, and a task cannot skip any state. A task can enter the `FAILED` state from any active state (`PROPOSED`, `PLANNED`, or `IMPLEMENTED`) when issues are found.
+Each task goes through a defined lifecycle with specific states. The state must be included in the `state` file within each task folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`. The normal progression is `PROPOSED → PLANNED → IMPLEMENTED → ARCHIVED`, and a task cannot skip any state in the forward direction. A task can enter the `FAILED` state from any active state (`PROPOSED`, `PLANNED`, or `IMPLEMENTED`) when issues are found. Once resolved, a `FAILED` task can be moved back to any previous active state depending on the nature of the failure.
 
 ### Proposed
 

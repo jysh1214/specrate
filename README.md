@@ -58,33 +58,33 @@ mkdir -p .augment/skills && git clone https://github.com/jysh1214/tequila.git .a
 
 Tequila manages task artifacts under `.tequila/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
-1. Show current status:
-```txt
-Follow tequila skill, show the current status of tasks
-```
-2. Propose a new task:
+1. Propose a new task:
 ```txt
 Follow tequila skill, propose a new task to {description of the task} (optionally include Jira ticket)
 ```
-3. Amend an existing task:
-```txt
-Follow tequila skill, amend the task {task-id}: {description of the amendment}
-```
-4. Plan a proposed task:
+2. Plan a proposed task:
 ```txt
 Follow tequila skill, plan the proposed {task-id}
 ```
-5. Implement a planned task:
+3. Implement a planned task:
 ```txt
 Follow tequila skill, implement the planned {task-id}
 ```
-6. Validate an implemented task:
+4. Validate an implemented task:
 ```txt
 Follow tequila skill, validate the implemented {task-id}: {description of validation}
 ```
-7. Archive an implemented task
+5. Archive an implemented task
 ```txt
 Follow tequila skill, archive the implemented {task-id}
+```
+6. Amend an existing task:
+```txt
+Follow tequila skill, amend the task {task-id}: {description of the amendment}
+```
+7. Show current status:
+```txt
+Follow tequila skill, show the current status of tasks
 ```
 8. Prepare a PR:
 ```txt

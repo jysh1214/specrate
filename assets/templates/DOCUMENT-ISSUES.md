@@ -1,4 +1,4 @@
-# Issues of *[Change Name]*
+# Issues of *[Task Name]*
 
 ## Issues
 

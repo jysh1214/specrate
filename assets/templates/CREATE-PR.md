@@ -1,4 +1,4 @@
-# PR: *[Change Name]*
+# PR: *[Task Name]*
 
 ## Summary
 
@@ -7,10 +7,6 @@
 ## Changes
 
 - [Bullet list of key changes made]
-
-## Spec Delta
-
-- [Bullet list of spec-level additions, modifications, or removals]
 
 ## Notes
 

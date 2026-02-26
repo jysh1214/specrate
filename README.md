@@ -1,22 +1,24 @@
-# Specrate
+# Tequila
 
-Specrate is an agent skill that manages specs and changes in a structured way. It provides a framework for proposing, planning, implementing, and archiving changes to the system's specs.
+Tequila is an agent skill that manages tasks in a structured way, with a strong focus on engineering workflow. It provides a framework for proposing, planning, implementing, validating, and archiving tasks.
+
+Forked from [Specrate](https://github.com/rickygao/specrate).
 
 ## Installation
 
 Claude code:
 
 ```sh
-mkdir -p .claude/skills && git clone https://github.com/jysh1214/specrate.git .claude/skills/specrate && rm -rf .claude/skills/specrate/.git
+mkdir -p .claude/skills && git clone https://github.com/jysh1214/tequila.git .claude/skills/tequila && rm -rf .claude/skills/tequila/.git
 ```
 
 Auggie:
 
 ```sh
-mkdir -p .augment/skills && git clone https://github.com/jysh1214/specrate.git .augment/skills/specrate && rm -rf .augment/skills/specrate/.git
+mkdir -p .augment/skills && git clone https://github.com/jysh1214/tequila.git .augment/skills/tequila && rm -rf .augment/skills/tequila/.git
 ```
 
-## Change Lifecycle
+## Task Lifecycle
 
 ```
                   ┌───────────┐
@@ -47,27 +49,27 @@ mkdir -p .augment/skills && git clone https://github.com/jysh1214/specrate.git .
           │  │           │                 │          │
           │  │           ▼                 ▼          │
           │  │  ┌──────────────┐ ┌──────────────────┐ │
-          │  └──┤ AMEND CHANGE │ │ PROPOSE NEW      ├─┘
-          └─────┤ (fix & retry)│ │ CHANGE           │
+          │  └──┤ AMEND TASK   │ │ PROPOSE NEW      ├─┘
+          └─────┤ (fix & retry)│ │ TASK             │
                 └──────────────┘ └──────────────────┘
 ```
 
 ## Usage
 
-Specrate manages spec and change artifacts under `.specrate/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
+Tequila manages task artifacts under `.tequila/` at the repository root (see [references/PRINCIPLE.md](./references/PRINCIPLE.md) for conventions).
 
-1. Show current status: "Follow specrate skill, show the current status of specs and changes"
-2. Propose a new change: "Follow specrate skill, propose a new change to {description of the change}" (optionally include Jira ticket)
-3. Amend an existing change: "Follow specrate skill, amend the change {change-id}: {description of the amendment}"
-4. Plan a proposed change: "Follow specrate skill, plan the proposed {change-id}"
-5. Implement a planned change: "Follow specrate skill, implement the planned {change-id}"
-6. Validate an implemented change: "Follow specrate skill, validate the implemented {change-id}: {description of validation}"
-7. Archive an implemented change: "Follow specrate skill, archive the implemented {change-id}"
-8. Prepare a PR: "Follow specrate skill, prepare a PR for {change-id}"
-9. Document issues in a change: "Follow specrate skill, document issues found in {change-id}"
+1. Show current status: "Follow tequila skill, show the current status of tasks"
+2. Propose a new task: "Follow tequila skill, propose a new task to {description of the task}" (optionally include Jira ticket)
+3. Amend an existing task: "Follow tequila skill, amend the task {task-id}: {description of the amendment}"
+4. Plan a proposed task: "Follow tequila skill, plan the proposed {task-id}"
+5. Implement a planned task: "Follow tequila skill, implement the planned {task-id}"
+6. Validate an implemented task: "Follow tequila skill, validate the implemented {task-id}: {description of validation}"
+7. Archive an implemented task: "Follow tequila skill, archive the implemented {task-id}"
+8. Prepare a PR: "Follow tequila skill, prepare a PR for {task-id}"
+9. Document issues in a task: "Follow tequila skill, document issues found in {task-id}"
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 
 ## Acknowledgements
 
-This skill was heavily inspired by the [OpenSpec](https://openspec.dev).
+This project is forked from [Specrate](https://github.com/rickygao/specrate), which was heavily inspired by [OpenSpec](https://openspec.dev).

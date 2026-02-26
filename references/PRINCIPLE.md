@@ -3,141 +3,95 @@
 ## Key Conventions
 
 - Favor straightforward, minimal implementations first and add complexity only when it is requested or clearly required.
-- Keep changes tightly scoped to the requested outcome. Avoid scope creep.
-- Specs describe "what" the system should do, while changes describe how the system should evolve.
-- During the lifecycle of a change (`PROPOSED` → `PLANNED` → `IMPLEMENTED`, or `FAILED` at any point), do **NOT** update specs. All proposed requirements and work-in-progress intent must live under the change folder (especially `spec-delta.md`).
-- Specs are updated only when archiving a change (`ARCHIVED`), by integrating the change's `spec-delta.md` into the relevant spec(s).
+- Keep tasks tightly scoped to the requested outcome. Avoid scope creep.
+- Tasks are the primary unit of work. Each task represents a coherent piece of work that maps to a Git PR.
+- Subtasks are the individual steps within a task. Each subtask maps to a Git commit.
+- A Jira ticket link is optional. Multiple tasks can reference the same ticket.
 
 ## Folder Structure
 
-All specrate-managed artifacts are organized in the `.specrate/` folder at the project root. The key folders under it are `specs/` and `changes/`.
-Specs are the current state of the system, while changes are proposed modifications to it.
+All tequila-managed artifacts are organized in the `.tequila/` folder at the project root. The key folder under it is `tasks/`.
 
-- `.specrate/work`: (required) Contains the change-id of the currently focused change (e.g., `0001-add-multi-factor-auth`). This file tracks which change is actively being worked on. Actions should default to operating on this change.
+- `.tequila/work`: (required) Contains the task-id of the currently focused task (e.g., `0001-add-multi-factor-auth`). This file tracks which task is actively being worked on. Actions should default to operating on this task.
 
-### Specs
+### Tasks
 
-The folder `.specrate/specs/` contains the specs that define various aspects of the system.
-Specs are the authoritative source of truth for the system's behavior.
-They are about "what" the system should do, not "how" it should be implemented.
+The folder `.tequila/tasks/` contains the tasks that describe units of work to be done.
 
-Each spec is stored in its own subfolder named after its unique spec id (`.specrate/specs/{spec-id}/`).
-Spec ids are kebab-case, noun phrases, unique identifiers, e.g., `access-control`, `payment-processing`, or `project-risk-management`.
-The corresponding spec names are of the same wording but in Title Case, e.g., `Access Control`, `Payment Processing`, or `Project Risk Management`.
-
-- `.specrate/specs/{spec-id}/spec.md`: (required, follows [SPECS-SPEC.md](../assets/templates/SPECS-SPEC.md))
-  The main spec document for the spec `{spec-id}`.
-  This document **MUST** outline the functionality-central, user-oriented, implementation-agnostic requirements, behaviors, and constraints.
-  - functionality-central: focus on what the system should do from a functional perspective.
-  - user-oriented: describe the system's behavior in terms of user needs and experiences.
-  - implementation-agnostic: avoid specifying how the system should be implemented technically.
-- `.specrate/specs/{spec-id}/*`: (optional)
-  Any additional files related to the spec `{spec-id}`, such as diagrams or supporting documents.
-
-### Changes
-
-The folder `.specrate/changes/` contains the changes that describe proposed modifications to the system.
-Changes are about "how" the system should evolve to meet new requirements or fix issues.
-
-Each change is stored in its own subfolder named after its unique change id (`.specrate/changes/{change-id}/`).
-Change ids start with a 4-digit zero-padded auto-incrementing index prefix, followed by a kebab-case, verb-led descriptive part, e.g., `0001-add-multi-factor-auth`, `0002-improve-payment-latency`, or `0003-add-project-dashboard`. Prefer verb prefixes like `add-`, `remove-`, `update-`, `improve-`, *etc.*, to indicate the action being proposed. The index is determined by scanning existing change directories under `.specrate/changes/`, finding the highest numeric prefix, and incrementing by 1. If no changes exist, start at `0001`.
-The corresponding change names are of the same wording (without the index prefix) but in Title Case, e.g., `Add Multi-Factor Auth`, `Improve Payment Latency`, or `Add Project Dashboard`.
+Each task is stored in its own subfolder named after its unique task id (`.tequila/tasks/{task-id}/`).
+Task ids start with a 4-digit zero-padded auto-incrementing index prefix, followed by a kebab-case, verb-led descriptive part, e.g., `0001-add-multi-factor-auth`, `0002-improve-payment-latency`, or `0003-add-project-dashboard`. Prefer verb prefixes like `add-`, `remove-`, `update-`, `improve-`, *etc.*, to indicate the action being proposed. The index is determined by scanning existing task directories under `.tequila/tasks/`, finding the highest numeric prefix, and incrementing by 1. If no tasks exist, start at `0001`.
+The corresponding task names are of the same wording (without the index prefix) but in Title Case, e.g., `Add Multi-Factor Auth`, `Improve Payment Latency`, or `Add Project Dashboard`.
 Suffixing with a Jira ticket index is optional, e.g., `0001-add-multi-factor-auth-PROJ-123`, `0002-improve-payment-latency-PROJ-456`, or `0003-add-project-dashboard`.
 
-- `.specrate/changes/{change-id}/state`: (required)
-  The state document for the change `{change-id}`, containing its current state only.
+- `.tequila/tasks/{task-id}/state`: (required)
+  The state document for the task `{task-id}`, containing its current state only.
   Possible states are literally `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`.
-  See policies in the **Change lifecycle** section of this document.
-- `.specrate/changes/{change-id}/ticket`: (optional)
-  The ticket file for the change `{change-id}`, containing the Jira ticket index only (e.g., `PROJ-123`).
+  See policies in the **Task Lifecycle** section of this document.
+- `.tequila/tasks/{task-id}/ticket`: (optional)
+  The ticket file for the task `{task-id}`, containing the Jira ticket index only (e.g., `PROJ-123`).
   Created when the user provides a Jira ticket index during the proposal.
-- `.specrate/changes/{change-id}/proposal.md`: (required, follows [CHANGES-PROPOSAL.md](../assets/templates/CHANGES-PROPOSAL.md))
-  The main proposal document for the change `{change-id}`, outlining the motivation, goals, and high-level approach for the change `{change-id}`.
-- `.specrate/changes/{change-id}/spec-delta.md`: (required, follows [CHANGES-SPEC-DELTA.md](../assets/templates/CHANGES-SPEC-DELTA.md))
-  The spec delta for the change `{change-id}`.
-  This document describes the specific modifications to be made to existing specs or new specs to be created as part of implementing the change `{change-id}`.
-- `.specrate/changes/{change-id}/design.md`: (optional, follows [CHANGES-DESIGN.md](../assets/templates/CHANGES-DESIGN.md))
-  The design document for the change `{change-id}`.
-  This document provides a detailed design and rationale for the change `{change-id}`.
-- `.specrate/changes/{change-id}/tasks.md`: (required after `PLANNED`, follows [CHANGES-TASKS.md](../assets/templates/CHANGES-TASKS.md))
-  The task list for the change `{change-id}`.
-  Tasks are actionable items to be completed as part of implementing the change `{change-id}`.
-  Use task list grammar (e.g., `- [ ]` for pending tasks and `- [x]` for completed tasks) to track progress.
-- `.specrate/changes/{change-id}/validation.md`: (optional, follows [VALIDATION.md](../assets/templates/VALIDATION.md))
-  The validation document for the change `{change-id}`.
-  This document describes how to validate the change, the expected outcome, and the result (PASS or FAIL).
+- `.tequila/tasks/{task-id}/proposal.md`: (required, follows [TASKS-PROPOSAL.md](../assets/templates/TASKS-PROPOSAL.md))
+  The main proposal document for the task `{task-id}`, outlining the motivation, goals, and high-level approach.
+- `.tequila/tasks/{task-id}/subtasks.md`: (required after `PLANNED`, follows [TASKS-SUBTASKS.md](../assets/templates/TASKS-SUBTASKS.md))
+  The subtask list for the task `{task-id}`.
+  Subtasks are actionable items to be completed as part of implementing the task.
+  Use task list grammar (e.g., `- [ ]` for pending subtasks and `- [x]` for completed subtasks) to track progress.
+- `.tequila/tasks/{task-id}/design.md`: (optional, follows [TASKS-DESIGN.md](../assets/templates/TASKS-DESIGN.md))
+  The design document for the task `{task-id}`.
+  This document provides a detailed design and rationale for the task.
+- `.tequila/tasks/{task-id}/validation.md`: (required after `IMPLEMENTED`, follows [VALIDATION.md](../assets/templates/VALIDATION.md))
+  The validation document for the task `{task-id}`.
+  This document describes how to validate the task, the expected outcome, and the result (PASS or FAIL).
   The validation method must be clear, unambiguous, and reproducible.
-- `.specrate/changes/{change-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
-  The issues document for the change `{change-id}`.
+- `.tequila/tasks/{task-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
+  The issues document for the task `{task-id}`.
   This document records the issues found, their root causes, and suggested fixes.
-- `.specrate/changes/{change-id}/*`: (optional)
-  Any additional files related to the change `{change-id}`, such as diagrams or supporting documents.
+- `.tequila/tasks/{task-id}/*`: (optional)
+  Any additional files related to the task `{task-id}`, such as diagrams or supporting documents.
 
-## Change Lifecycle
+## Task Lifecycle
 
-Each change goes through a defined lifecycle with specific states. The state must be included in the `state` file within each change folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`. They happen in this order, and a change cannot skip any state. A change can enter the `FAILED` state from any active state (`PROPOSED`, `PLANNED`, or `IMPLEMENTED`) when issues are found.
-
-Policy: treat specs as stable and do not edit them for an in-flight change. The only point where a change is merged into specs is the `ARCHIVED` step.
-
-To manage the state of a change, use the following PowerShell commands or equivalent operations:
-
-```pwsh
-# To check the current state of a change, read the content of its state file:
-Get-Content .specrate/changes/{change-id}/state
-
-# for example:
-Get-Content .specrate/changes/0001-add-multi-factor-auth/state
-```
-
-```pwsh
-# To update the state of a change, overwrite the content of its state file with the new state:
-Set-Content .specrate/changes/{change-id}/state {NEW_STATE}
-
-# for example:
-Set-Content .specrate/changes/0002-improve-payment-latency/state IMPLEMENTED
-```
+Each task goes through a defined lifecycle with specific states. The state must be included in the `state` file within each task folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `FAILED`, and `ARCHIVED`. They happen in this order, and a task cannot skip any state. A task can enter the `FAILED` state from any active state (`PROPOSED`, `PLANNED`, or `IMPLEMENTED`) when issues are found.
 
 ### Proposed
 
 In this state, the state file contains the text `PROPOSED` only.
 
-The state indicates that the change has been proposed and is ready for planning.
-The change folder must contain at least the `state`, `proposal.md` and `spec-delta.md` files in this state.
+The state indicates that the task has been proposed and is ready for planning.
+The task folder must contain at least the `state` and `proposal.md` files in this state.
 
-By reading the `proposal.md` and `spec-delta.md` files, stakeholders can understand the motivation and the specific modifications proposed for the system. Then, designated engineers can plan the implementation of the change and create the `tasks.md` and `design.md` files accordingly to move the change to the next state of `PLANNED`.
+By reading the `proposal.md` file, stakeholders can understand the motivation and goals. Then, designated engineers can plan the implementation and create the `subtasks.md` and `design.md` files accordingly to move the task to the next state of `PLANNED`.
 
 ### Planned
 
 In this state, the state file contains the text `PLANNED` only.
 
-The state indicates that the change has been planned with a defined set of tasks and is ready for implementation.
-The change folder must contain the `tasks.md` file in this state and optionally the `design.md` file for a more comprehensive approach, in addition to the files required in the `PROPOSED` state.
+The state indicates that the task has been planned with a defined set of subtasks and is ready for implementation.
+The task folder must contain the `subtasks.md` file in this state and optionally the `design.md` file for a more comprehensive approach, in addition to the files required in the `PROPOSED` state.
 
-By reading the `tasks.md` and `design.md` files, engineers can understand the specific tasks to be completed and the design approach for implementing the change. Then, designated engineers can proceed with the implementation of the change to move it to the next state of `IMPLEMENTED`.
+By reading the `subtasks.md` and `design.md` files, engineers can understand the specific subtasks to be completed and the design approach. Then, designated engineers can proceed with the implementation to move the task to the next state of `IMPLEMENTED`.
 
 ### Implemented
 
 In this state, the state file contains the text `IMPLEMENTED` only.
 
-The state indicates that the change has been implemented and is ready for archival.
-The change folder must contain the `tasks.md` file where all tasks are marked completed in this state. Task list grammar is used for tasks, e.g., `- [x]` for completed tasks and `- [ ]` for pending tasks.
+The state indicates that the task has been implemented and is ready for validation.
+The task folder must contain the `subtasks.md` file where all subtasks are marked completed in this state. Task list grammar is used for subtasks, e.g., `- [x]` for completed subtasks and `- [ ]` for pending subtasks.
+The task folder must also contain the `validation.md` file documenting the validation method, steps, expected outcome, and result.
 
-Specs should still remain unchanged in this state. If the implementation reveals mismatches, update the change documents (especially `spec-delta.md`) and proceed to archival to merge into specs.
-
-By reviewing the implementation and the behavior of the system, designated engineers can verify that the change has been successfully integrated. Once verified, the change can be moved to the final state of `ARCHIVED`.
+By reviewing the implementation and validation results, designated engineers can verify that the task has been successfully completed. Once verified, the task can be moved to the final state of `ARCHIVED`.
 
 ### Failed
 
 In this state, the state file contains the text `FAILED` only.
 
-The state indicates that issues have been found in the change that need to be addressed before proceeding.
-The change folder must contain the `issues.md` file documenting the issues, their root causes, and suggested fixes.
+The state indicates that issues have been found in the task that need to be addressed before proceeding.
+The task folder must contain the `issues.md` file documenting the issues, their root causes, and suggested fixes.
 
-A `FAILED` change can be moved back to its previous state (e.g., `PROPOSED`, `PLANNED`, or `IMPLEMENTED`) once the issues have been resolved and the `issues.md` file has been updated accordingly.
+A `FAILED` task can be moved back to its previous state (e.g., `PROPOSED`, `PLANNED`, or `IMPLEMENTED`) once the issues have been resolved and the `issues.md` file has been updated accordingly.
 
 ### Archived
 
 In this state, the state file contains the text `ARCHIVED` only.
 
-The state indicates that the change has been completed and archived for historical reference.
-The spec delta in `spec-delta.md` must have been fully integrated into the relevant specs in this state. This is the point where specs are updated.
+The state indicates that the task has been completed and archived for historical reference.

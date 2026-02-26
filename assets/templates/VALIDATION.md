@@ -1,8 +1,8 @@
-# Validation of *[Change Name]*
+# Validation of *[Task Name]*
 
 ## Validation Method
 
-[Clear, unambiguous, and reproducible description of how to validate the change is successful]
+[Clear, unambiguous, and reproducible description of how to validate the task is successful]
 
 ## Steps
 
@@ -11,7 +11,7 @@
 
 ## Expected Outcome
 
-[What should be observed if the change is successful]
+[What should be observed if the task is successful]
 
 ## Result
 

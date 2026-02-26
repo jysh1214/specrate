@@ -21,7 +21,6 @@ The folder `.tequila/tasks/` contains the tasks that describe units of work to b
 Each task is stored in its own subfolder named after its unique task id (`.tequila/tasks/{task-id}/`).
 Task ids start with a 4-digit zero-padded auto-incrementing index prefix, followed by a kebab-case, verb-led descriptive part, e.g., `0001-add-multi-factor-auth`, `0002-improve-payment-latency`, or `0003-add-project-dashboard`. Prefer verb prefixes like `add-`, `remove-`, `update-`, `improve-`, *etc.*, to indicate the action being proposed. The index is determined by scanning existing task directories under `.tequila/tasks/`, finding the highest numeric prefix, and incrementing by 1. If no tasks exist, start at `0001`.
 The corresponding task names are of the same wording (without the index prefix) but in Title Case, e.g., `Add Multi-Factor Auth`, `Improve Payment Latency`, or `Add Project Dashboard`.
-Suffixing with a Jira ticket index is optional, e.g., `0001-add-multi-factor-auth-PROJ-123`, `0002-improve-payment-latency-PROJ-456`, or `0003-add-project-dashboard`.
 
 - `.tequila/tasks/{task-id}/state`: (required)
   The state document for the task `{task-id}`, containing its current state only.

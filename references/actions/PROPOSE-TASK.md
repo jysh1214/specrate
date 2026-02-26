@@ -5,7 +5,7 @@ When proposing a new task, follow these steps:
 1. Ensure `.tequila/tasks/` exists; create it if missing.
 2. Create a new folder `.tequila/tasks/{task-id}/` with a unique `task-id` that describes the task.
    - Scan `.tequila/tasks/` for existing task directories and extract the highest numeric prefix (the leading 4-digit number) from existing task ids. Assign the next sequential index, zero-padded to 4 digits. If no tasks exist, start at `0001`.
-   - Construct the task id as `{index}-{descriptive-part}` (e.g., `0001-add-multi-factor-auth`) or `{index}-{descriptive-part}-{ticket}` if a Jira ticket is provided (e.g., `0001-add-multi-factor-auth-PROJ-123`).
+   - Construct the task id as `{index}-{descriptive-part}` (e.g., `0001-add-multi-factor-auth`).
    - Propose a `task-id` based on the user's description if not provided, and confirm it with the user.
    - If the folder already exists, inform the user, suggest amending the existing task instead, and abort the current action.
 3. Inside the new folder, create the following required files:

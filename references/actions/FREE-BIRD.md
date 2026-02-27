@@ -19,7 +19,7 @@ Free Bird mode runs the full Tequila flywheel automatically for a given task: pl
 5. **Validate** — Follow [VALIDATE-TASK.md](./VALIDATE-TASK.md) using the validation description provided by the user.
    - If validation **passes**, proceed to step 6.
    - If validation **fails**, proceed to step 7.
-6. **Archive** — Follow [ARCHIVE-TASK.md](./ARCHIVE-TASK.md) to move the task to `ARCHIVED`. The flywheel is complete — summarize the result and stop.
+6. **Archive** — Follow [ARCHIVE-TASK.md](./ARCHIVE-TASK.md). Set the task state to `ARCHIVED`. The flywheel is complete — summarize the result and stop.
 7. **Amend loop** — Validation failed.
    a. Read the current value from `.tequila/tasks/{task-id}/reincarnation` and decrement it by 1. Write the new value back.
    b. If the value has reached `0`, leave the task in `FAILED` state, summarize the unresolved issues to the user, and stop. This indicates the current direction or approach is likely wrong.

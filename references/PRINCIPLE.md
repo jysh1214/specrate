@@ -5,7 +5,7 @@
 - Favor straightforward, minimal implementations first and add complexity only when it is requested or clearly required.
 - Keep tasks tightly scoped to the requested outcome. Avoid scope creep.
 - Tasks are the primary unit of work. Each task represents a coherent piece of work that maps to a Git PR.
-- Subtasks are the individual steps within a task. Each subtask maps to a Git commit.
+- Subtasks are the individual steps within a task. Each subtask maps to a Git commit. Changes are not committed during implementation — after archiving, the user is asked whether to commit, and the diff is split into subtask-aligned commits.
 - A Jira ticket link is optional. Multiple tasks can reference the same ticket.
 
 ## Folder Structure

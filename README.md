@@ -79,9 +79,9 @@ Follow tequila skill, implement the planned {task-id}
 ```txt
 Follow tequila skill, validate the implemented {task-id}: {description of validation}
 ```
-5. Archive an implemented task
+5. Archive a pass task
 ```txt
-Follow tequila skill, archive the implemented {task-id}
+Follow tequila skill, archive the pass {task-id}
 ```
 6. Amend an existing task:
 ```txt

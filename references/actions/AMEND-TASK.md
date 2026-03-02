@@ -10,4 +10,8 @@ When amending an existing task, follow these steps:
    - Repeat this step until all requested amendments are made.
    - Check for consistency across related files if applicable to avoid contradictions.
    - Remove directly instead of marking items as deleted if requested.
-4. Summarize the amendments made to the task and provide any next steps if applicable.
+4. Check whether the amendments invalidate the current state's entry conditions (see [PRINCIPLE.md](../PRINCIPLE.md) Task Lifecycle). For example:
+   - Adding unchecked subtasks to an `IMPLEMENTED` or later task (all subtasks must be completed).
+   - Changing validation results on a `PASS` task (must have a `PASS` result).
+   - If the state is no longer consistent, inform the user and ask whether to roll back the state to the last valid one.
+5. Summarize the amendments made to the task and provide any next steps if applicable.

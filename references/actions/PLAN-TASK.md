@@ -6,11 +6,10 @@ When planning a proposed task, follow these steps:
    - Identify the `task-id` based on the user's description if not provided accurately, and confirm it with the user.
    - If the folder does not exist, inform the user and suggest proposing a new task instead, then abort the current action.
    - If the task is not in the `PROPOSED` state, inform the user and abort the current action.
-2. Create the following required files inside the task folder:
-   - `subtasks.md`: using the [TASKS-SUBTASKS.md](../../assets/templates/TASKS-SUBTASKS.md) template.
+2. Create the following inside the task folder:
+   - `subtasks.md`: using the [TASKS-SUBTASKS.md](../../assets/templates/TASKS-SUBTASKS.md) template. This is the task-level overview listing all subtasks.
+   - `subtasks/` directory: containing one subdirectory per subtask, named `{index}-{subtask-name}`, where `{index}` is the 1-based index zero-padded to 3 digits and `{subtask-name}` is kebab-case, verb-led (same convention as task ids). Inside each subdirectory, create a `description` file containing the planned intent of the subtask — what it will accomplish and its role in the overall task.
    - Optionally, `design.md`: using the [TASKS-DESIGN.md](../../assets/templates/TASKS-DESIGN.md) template.
-3. Fill out the `subtasks.md` file (and `design.md` if present) with the relevant information about the task.
-   - If `design.md` is present, fill it out first since it may inform the subtasks.
-   - Create actionable subtasks in `subtasks.md` using task list grammar (e.g., `- [ ]` for pending subtasks).
+3. Fill out `subtasks.md` with the subtask list using task list grammar (e.g., `- [ ]` for pending subtasks). If `design.md` is present, fill it out first since it may inform the subtasks.
 4. Update the `state` file to contain the text `PLANNED` only.
 5. Summarize the planned task and provide any next steps if applicable.

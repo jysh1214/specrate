@@ -50,7 +50,7 @@ The corresponding task names are of the same wording (without the index prefix) 
 - `.tequila/tasks/{task-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
   The issues document for the task `{task-id}`.
   This document records the issues found, their root causes, and suggested fixes.
-- `.tequila/tasks/{task-id}/pr.md`: (required after `ARCHIVED`, follows [CREATE-PR.md](../assets/templates/CREATE-PR.md))
+- `.tequila/tasks/{task-id}/pr.md`: (required after `PLANNED`, follows [PR.md](../assets/templates/PR.md))
   The pull request document for the task `{task-id}`.
   This document summarizes the changes for the Git PR, generated from the proposal, subtasks, design, and commit history.
 - `.tequila/tasks/{task-id}/*`: (optional)
@@ -74,7 +74,7 @@ By reading the `proposal.md` file, stakeholders can understand the motivation an
 In this state, the state file contains the text `PLANNED` only.
 
 The state indicates that the task has been planned with a defined set of subtasks and is ready for implementation.
-The task folder must contain `subtasks.md` and the `subtasks/` directory (with at least one subtask subdirectory, each containing a `commit_message` file) in this state, in addition to the files required in the `PROPOSED` state.
+The task folder must contain `subtasks.md`, the `subtasks/` directory (with at least one subtask subdirectory, each containing a `commit_message` file), and `pr.md` in this state, in addition to the files required in the `PROPOSED` state.
 
 By reading `subtasks.md` for the whole picture and the subtask `commit_message` files for detail, engineers can understand the specific subtasks to be completed. Then, designated engineers can proceed with the implementation to move the task to the next state of `IMPLEMENTED`.
 

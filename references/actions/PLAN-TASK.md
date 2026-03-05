@@ -10,5 +10,6 @@ When planning a proposed task, follow these steps:
    - `subtasks.md`: using the [TASKS-SUBTASKS.md](../../assets/templates/TASKS-SUBTASKS.md) template. This is the task-level overview listing all subtasks.
    - `subtasks/` directory: containing one subdirectory per subtask, named `{index}-{subtask-name}`, where `{index}` is the 1-based index zero-padded to 3 digits and `{subtask-name}` is kebab-case, verb-led (same convention as task ids). Inside each subdirectory, create a `commit_message` file containing a draft commit message for the subtask based on the planned intent.
 3. Fill out `subtasks.md` with the subtask list using task list grammar (e.g., `- [ ]` for pending subtasks).
-4. Update the `state` file to contain the text `PLANNED` only.
-5. Summarize the planned task and provide any next steps if applicable.
+4. Follow [CREATE-PR.md](./CREATE-PR.md) to create `pr.md` inside the task folder.
+5. Update the `state` file to contain the text `PLANNED` only.
+6. Summarize the planned task and provide any next steps if applicable.

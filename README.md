@@ -87,17 +87,17 @@ Follow tequila skill, archive the validated {task-id}
 ```txt
 Follow tequila skill, amend the task {task-id}: {description of the amendment}
 ```
-7. Show current status:
+7. Document issues in a task:
+```txt
+Follow tequila skill, document issues found in {task-id}
+```
+8. Show current status:
 ```txt
 Follow tequila skill, show the current status of tasks
 ```
-8. Show subtasks of a task:
+9. Show subtasks of a task:
 ```txt
 Follow tequila skill, show the subtasks of {task-id}
-```
-9. Document issues in a task:
-```txt
-Follow tequila skill, document issues found in {task-id}
 ```
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.

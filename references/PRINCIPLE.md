@@ -50,7 +50,7 @@ The corresponding task names are of the same wording (without the index prefix) 
 - `.tequila/tasks/{task-id}/issues.md`: (required if `FAILED`, follows [DOCUMENT-ISSUES.md](../assets/templates/DOCUMENT-ISSUES.md))
   The issues document for the task `{task-id}`.
   This document records the issues found, their root causes, and suggested fixes.
-- `.tequila/tasks/{task-id}/pr.md`: (optional, follows [CREATE-PR.md](../assets/templates/CREATE-PR.md))
+- `.tequila/tasks/{task-id}/pr.md`: (required after `ARCHIVED`, follows [CREATE-PR.md](../assets/templates/CREATE-PR.md))
   The pull request document for the task `{task-id}`.
   This document summarizes the changes for the Git PR, generated from the proposal, subtasks, design, and commit history.
 - `.tequila/tasks/{task-id}/*`: (optional)

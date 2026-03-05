@@ -91,11 +91,7 @@ Follow tequila skill, amend the task {task-id}: {description of the amendment}
 ```txt
 Follow tequila skill, show the current status of tasks
 ```
-8. Prepare a PR:
-```txt
-Follow tequila skill, prepare a PR for {task-id}
-```
-9. Document issues in a task:
+8. Document issues in a task:
 ```txt
 Follow tequila skill, document issues found in {task-id}
 ```

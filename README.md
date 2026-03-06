@@ -99,6 +99,11 @@ Follow tequila skill, show the current status of tasks
 ```txt
 Follow tequila skill, show the subtasks of {task-id}
 ```
+10. Merge/rebase:
+```txt
+Follow tequila skill, merge the {branch}
+Follow tequila skill, rebase onto the {branch}
+```
 
 Refer to the [SKILL.md](./SKILL.md) file for how the skill works in detail.
 

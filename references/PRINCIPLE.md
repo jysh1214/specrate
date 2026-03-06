@@ -58,7 +58,15 @@ The corresponding task names are of the same wording (without the index prefix) 
 
 ## Task Lifecycle
 
-Each task goes through a defined lifecycle with specific states. The state must be included in the `state` file within each task folder. The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `VALIDATING`, `FAILED`, and `ARCHIVED`. The normal progression is `PROPOSED → PLANNED → IMPLEMENTED → VALIDATING → ARCHIVED`, and a task cannot skip any state in the forward direction. If validation fails, the task enters `FAILED` and issues are documented; once resolved, the task can be moved back to a prior active state for retry.
+Each task goes through a defined lifecycle with specific states. The state must be included in the `state` file within each task folder. There are two lifecycle tracks:
+
+### Standard Track
+
+The possible states are: `PROPOSED`, `PLANNED`, `IMPLEMENTED`, `VALIDATING`, `FAILED`, and `ARCHIVED`. The normal progression is `PROPOSED → PLANNED → IMPLEMENTED → VALIDATING → ARCHIVED`, and a task cannot skip any state in the forward direction. If validation fails, the task enters `FAILED` and issues are documented; once resolved, the task can be moved back to a prior active state for retry.
+
+### Merge/Rebase Track
+
+Used for conflict resolution during merge or rebase operations. The possible states are: `RESOLVING`, `VALIDATING`, `FAILED`, `ARCHIVED`, and `ABORTED`. The normal progression is `RESOLVING → VALIDATING → ARCHIVED`. If validation fails, the task enters `FAILED`; once resolved, it can return to `RESOLVING`. If the user abandons the operation, the task enters `ABORTED`.
 
 ### Proposed
 
@@ -110,3 +118,15 @@ A `FAILED` task can be moved back to a prior active state (e.g., `PLANNED` or `I
 In this state, the state file contains the text `ARCHIVED` only.
 
 The state indicates that the task has been completed and archived for historical reference.
+
+### Resolving (Merge/Rebase Track)
+
+In this state, the state file contains the text `RESOLVING` only.
+
+The state indicates that the task is actively resolving merge or rebase conflicts. Each conflicting file is a subtask, resolved and reviewed one by one. For rebase, new subtasks may be appended as successive commits reveal additional conflicts.
+
+### Aborted (Merge/Rebase Track)
+
+In this state, the state file contains the text `ABORTED` only.
+
+The state indicates that the merge or rebase operation was abandoned (`git merge --abort` or `git rebase --abort`). The task and its subtasks remain as a record of partial progress.

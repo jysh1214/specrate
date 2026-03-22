@@ -22,6 +22,7 @@ Based on the user's request, decide which action to take.
   follow [SHOW-STATUS.md](./references/actions/SHOW-STATUS.md) action.
 - If the user intends to propose a new task,
   follow [PROPOSE-TASK.md](./references/actions/PROPOSE-TASK.md) action.
+  Distill the user's requirement into a single Given-When-Then acceptance criterion. If multiple GWT statements are needed, present them to the user and discuss whether to split into separate tasks before proceeding.
 - If the user intends to amend an existing task,
   follow [AMEND-TASK.md](./references/actions/AMEND-TASK.md) action.
 - If the user intends to plan a proposed task,
